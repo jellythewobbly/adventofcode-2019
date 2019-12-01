@@ -1,0 +1,26 @@
+{
+  "name": "adventofcode-2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jellythewobbly/adventofcode-2019.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jellythewobbly/adventofcode-2019/issues"
+  },
+  "homepage": "https://github.com/jellythewobbly/adventofcode-2019#readme",
+  "devDependencies": {
+    "@types/node": "^12.12.14"
+  },
+  "dependencies": {
+    "@types/filesystem": "0.0.29"
+  }
+}
