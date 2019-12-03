@@ -13,29 +13,57 @@ const data: number[] = fs
   .split(',')
   .map(Number);
 
-const steps: number[] = data;
+const steps: number[] = [...data];
 
 steps[1] = 12;
 steps[2] = 2;
 
-let stepNumber = 0;
+const runProgram = (instructions: number[]) => {
+  let stepNumber = 0;
 
-while (steps[stepNumber] !== 99) {
-  const input = steps[stepNumber];
+  while (instructions[stepNumber] !== 99) {
+    const opcode = instructions[stepNumber];
 
-  const element1 = steps[steps[stepNumber + 1]];
-  const element2 = steps[steps[stepNumber + 2]];
-  const overwriteIndex = steps[stepNumber + 3];
+    const element1 = instructions[instructions[stepNumber + 1]];
+    const element2 = instructions[instructions[stepNumber + 2]];
+    const overwriteIndex = instructions[stepNumber + 3];
 
-  if (input === 1) {
-    steps[overwriteIndex] = add(element1, element2);
-  } else if (input === 2) {
-    steps[overwriteIndex] = multiply(element1, element2);
+    if (opcode === 1) {
+      instructions[overwriteIndex] = add(element1, element2);
+    } else if (opcode === 2) {
+      instructions[overwriteIndex] = multiply(element1, element2);
+    }
+
+    stepNumber += 4;
   }
+  return instructions[0];
+};
 
-  stepNumber += 4;
-}
-
-const part1Answer = steps[0];
+const part1Answer = runProgram(steps);
 
 console.log(`Part 1: ${part1Answer}`);
+
+const steps2: number[] = [...data];
+
+const findNounVerb = (instructions: number[], targetOutput: number) => {
+  for (let i = 0; i < 100; i++) {
+    for (let j = 0; j < 100; j++) {
+      let cloneInstructions = [...instructions];
+      let noun = i;
+      let verb = j;
+
+      cloneInstructions[1] = noun;
+      cloneInstructions[2] = verb;
+
+      if (runProgram(cloneInstructions) === targetOutput) {
+        return { noun, verb };
+      }
+    }
+  }
+};
+
+const { noun, verb } = findNounVerb(steps2, 19690720);
+
+const part2Answer = 100 * noun + verb;
+
+console.log(`Part 2: ${part2Answer}`);
