@@ -57,3 +57,9 @@ const part1: number = Math.min(
 );
 
 console.log(`Part 1: ${part1}`);
+
+const part2: number = Math.min(
+  ...Object.keys(both).map(point => points1[point] + points2[point])
+);
+
+console.log(`Part 2: ${part2}`);
