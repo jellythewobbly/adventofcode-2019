@@ -34,3 +34,26 @@ for (var currentNumber = low; currentNumber <= high; currentNumber++) {
     }
 }
 console.log("Part 1: " + differentPasswords);
+var twoAdjacentDigits = function (n) {
+    var stringNum = n.toString();
+    var adjacentCount = 1;
+    for (var i = 1; i < stringNum.length; i++) {
+        if (stringNum[i] !== stringNum[i - 1] && adjacentCount === 2) {
+            return true;
+        }
+        if (stringNum[i] === stringNum[i - 1]) {
+            adjacentCount += 1;
+        }
+        else {
+            adjacentCount = 1;
+        }
+    }
+    return adjacentCount === 2;
+};
+var newDifferentPasswords = 0;
+for (var currentNumber = low; currentNumber <= high; currentNumber++) {
+    if (twoAdjacentDigits(currentNumber) && digitsNeverDecrease(currentNumber)) {
+        newDifferentPasswords += 1;
+    }
+}
+console.log("Part 2: " + newDifferentPasswords);
