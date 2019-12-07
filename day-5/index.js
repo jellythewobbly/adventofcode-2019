@@ -7,15 +7,12 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 var fs = require('fs');
 var data = fs
-    .readFileSync('input.txt', function (err, data) {
-    if (err) {
-        throw err;
-    }
-})
+    .readFileSync('input.txt')
     .toString()
     .split(',')
     .map(Number);
 var steps = __spreadArrays(data);
+console.log(steps);
 var getOpcode = function (input) { return input % 100; };
 var getParameterModes = function (input) {
     var param1Mode = 0;

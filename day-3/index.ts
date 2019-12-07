@@ -1,11 +1,7 @@
 const fs = require('fs');
 
 const data: string[] = fs
-  .readFileSync('input.txt', (err, data) => {
-    if (err) {
-      throw err;
-    }
-  })
+  .readFileSync('input.txt')
   .toString()
   .split('\n');
 

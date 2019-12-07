@@ -9,11 +9,7 @@ var fs = require('fs');
 var add = function (n1, n2) { return n1 + n2; };
 var multiply = function (n1, n2) { return n1 * n2; };
 var data = fs
-    .readFileSync('input.txt', function (err, data) {
-    if (err) {
-        throw err;
-    }
-})
+    .readFileSync('input.txt')
     .toString()
     .split(',')
     .map(Number);

@@ -1,10 +1,6 @@
 var fs = require('fs');
 var data = fs
-    .readFileSync('input.txt', function (err, data) {
-    if (err) {
-        throw err;
-    }
-})
+    .readFileSync('input.txt')
     .toString()
     .split('\n');
 var wire1 = data[0].split(',');
