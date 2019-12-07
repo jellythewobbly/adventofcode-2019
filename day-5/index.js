@@ -20,7 +20,8 @@ const getParameterModes = (input) => {
 };
 const add = (n1, n2) => n1 + n2;
 const multiply = (n1, n2) => n1 * n2;
-const runProgram = (instructions, systemID) => {
+const runProgram = (steps, systemID) => {
+    const instructions = [...steps];
     let stepNumber = 0;
     let output = 0;
     while (stepNumber < instructions.length) {
@@ -51,6 +52,20 @@ const runProgram = (instructions, systemID) => {
                 output = element1;
                 stepNumber += 2;
                 break;
+            case 5:
+                element1 !== 0 ? (stepNumber = element2) : (stepNumber += 3);
+                break;
+            case 6:
+                element1 === 0 ? (stepNumber = element2) : (stepNumber += 3);
+                break;
+            case 7:
+                instructions[overwriteIndex] = element1 < element2 ? 1 : 0;
+                stepNumber += 4;
+                break;
+            case 8:
+                instructions[overwriteIndex] = element1 === element2 ? 1 : 0;
+                stepNumber += 4;
+                break;
             case 99:
                 return output;
         }
@@ -58,3 +73,5 @@ const runProgram = (instructions, systemID) => {
 };
 const part1 = runProgram(steps, 1);
 console.log(`Part 1: ${part1}`);
+const part2 = runProgram(steps, 5);
+console.log(`Part 2: ${part2}`);
