@@ -4,11 +4,7 @@ const add = (n1: number, n2: number) => n1 + n2;
 const multiply = (n1: number, n2: number) => n1 * n2;
 
 const data: number[] = fs
-  .readFileSync('input.txt', (err, data) => {
-    if (err) {
-      throw err;
-    }
-  })
+  .readFileSync('input.txt')
   .toString()
   .split(',')
   .map(Number);
