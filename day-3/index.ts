@@ -1,3 +1,4 @@
+export {};
 const fs = require('fs');
 
 const data: string[] = fs

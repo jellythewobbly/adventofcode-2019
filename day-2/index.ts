@@ -1,3 +1,4 @@
+export {};
 const fs = require('fs');
 
 const add = (n1: number, n2: number) => n1 + n2;
@@ -58,7 +59,7 @@ const findNounVerb = (instructions: number[], targetOutput: number) => {
   }
 };
 
-const { noun, verb } = findNounVerb(steps2, 19690720);
+const { noun, verb } = findNounVerb(steps2, 19690720)!;
 
 const part2Answer = 100 * noun + verb;
 

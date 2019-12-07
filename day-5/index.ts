@@ -1,3 +1,4 @@
+export {};
 const fs = require('fs');
 
 const data: number[] = fs
@@ -26,8 +27,8 @@ const add = (n1: number, n2: number) => n1 + n2;
 const multiply = (n1: number, n2: number) => n1 * n2;
 
 const runProgram = (instructions: number[], systemID: number) => {
-  let stepNumber = 0;
-  let output: number;
+  let stepNumber: number = 0;
+  let output: number = 0;
 
   while (stepNumber < instructions.length) {
     const opcode: number = getOpcode(instructions[stepNumber]);
